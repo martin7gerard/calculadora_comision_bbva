@@ -1,0 +1,230 @@
+:root {
+    --primary-color: #0077c5; /* BBVA Blue Approx */
+    --accent-color: #004481; /* Darker Blue */
+    --bg-color: #f7f9fa;
+    --card-bg: #ffffff;
+    --text-color: #121212;
+    --muted-color: #666;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --font-stack: 'Outfit', sans-serif;
+    --shadow-soft: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(135deg, #e0eaee 0%, #f7f9fa 100%);
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+header p {
+    color: var(--muted-color);
+    font-size: 1rem;
+}
+
+.calculator {
+    background: transparent;
+}
+
+.input-group {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-group label {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.input-group input {
+    font-size: 2.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary-color);
+    background-color: #f0f4f8;
+    transition: all 0.3s ease;
+    font-family: var(--font-stack);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 119, 197, 0.2);
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card.highlight {
+    border: 2px solid var(--primary-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.card-rate {
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    background: #f0f4f8;
+    padding: 4px 8px;
+    border-radius: 8px;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.result-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.result-value.large {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.monthly-payment {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #ddd;
+    text-align: center;
+}
+
+.monthly-payment .amount {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--success-color);
+    font-weight: 700;
+}
+
+.monthly-payment .desc {
+    font-size: 0.8rem;
+    color: var(--muted-color);
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: auto;
+    font-weight: 600;
+    padding: 0.5rem 0;
+}
+
+/* Specific styling for Contado vs MSI */
+.card-contado .card-title {
+    color: var(--success-color);
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .input-group input {
+        font-size: 2rem;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
